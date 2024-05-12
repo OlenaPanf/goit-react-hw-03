@@ -20,6 +20,11 @@
   flex-direction: column;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
   width: 150px;
   align-items: center;

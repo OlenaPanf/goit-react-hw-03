@@ -61,7 +61,10 @@ export default function ContactForm({ onAdd }) {
             component="span"
           />
       </div>
-      <button className={css.button} type="submit">Add contact</button>
+      <div className={css.center}>
+        <button className={css.button} type="submit">Add contact</button>
+      </div>
+      
     </Form>
     </Formik>
     
