@@ -18,15 +18,13 @@ const UserSchema = Yup.object().shape({
 export default function ContactForm({ onAdd }) {
     
   const handleSubmit = (values, actions) => {
-      onAdd(values);
+    const newContact = {
+      id: nanoid(), 
+     ...values, 
+    };
+
+    onAdd(newContact);
     actions.resetForm();
-
-    //     onAdd({
-    //     id: Date.now(),
-    //   name: event.target.elements.name.value,
-    //   number: event.target.elements.number.value,
-    // });
-
   };
 
   return (<Formik initialValues={{
@@ -35,11 +33,12 @@ export default function ContactForm({ onAdd }) {
       }} validationSchema={UserSchema} onSubmit={handleSubmit}>
       <Form className={css.form}>
       <div className={css.input}>
-        <label>Name</label>
+        <label htmlFor={nanoid()}>Name</label>
         <Field
           className={css.field}
-            type="text"
-            name="name"
+          id={nanoid()}          
+          type="text"
+          name="name"
         />
         <ErrorMessage
             className={css.error}
@@ -49,11 +48,12 @@ export default function ContactForm({ onAdd }) {
       </div>
 
       <div className={css.input}>
-        <label>Number</label>
+        <label htmlFor={nanoid()}>Number</label>
         <Field
-            className={css.field}
-            type="tel"
-            name="number"
+          className={css.field}
+          id={nanoid()} 
+          type="tel"
+          name="number"
         />
         <ErrorMessage
             className={css.error}
