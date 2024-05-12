@@ -5,11 +5,17 @@ import { HiUser } from "react-icons/hi";
 export default function Contact({ data: { id, name, number }, onDelete }) {
     
     return (
-        <div >
-            <HiUser />
+        <div className={css.container}>
+            <div>
+                <div className={css.box}>
+                <HiUser />
             <p>{name}</p>
-            <HiPhone />
-            <p>{number}</p>
+            </div>
+            <div className={css.box}>
+                <HiPhone />
+                <p>{number}</p>
+            </div>
+            </div>            
             <button onClick={() => onDelete(id)}>
                 Delete</button>
         </div>
